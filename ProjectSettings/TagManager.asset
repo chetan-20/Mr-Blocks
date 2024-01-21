@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - Pause
+  - Enemy
   layers:
   - Default
   - TransparentFX

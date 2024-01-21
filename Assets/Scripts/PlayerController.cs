@@ -6,18 +6,21 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
+
 public class PlayerController : MonoBehaviour
 {
+    private Restart restart;
     public Rigidbody2D rigidbody2d;
     public float speed;
-    public GameObject pausescreen;
+    private PauseMenu pause;//PauseMenu object
     public GameObject Levelcompleted;
-    private bool isPaused=false;
+    public GameObject LevelLost;
     private bool isCompleted = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        pause = GetComponent<PauseMenu>();//necessary to initialise this before starting other scripts
+        restart = GetComponent<Restart>();
     }
 
     // Update is called once per frame
@@ -50,13 +53,13 @@ public class PlayerController : MonoBehaviour
         }
          if (Input.GetKey(KeyCode.Space))//If Pressed space
         {
-             rigidbody2d.velocity = new Vector2(0f, 0f);
+            rigidbody2d.velocity = Vector2.zero;      //stop
         }
-         TogglePause();
-         if (isCompleted == true)
-            {
-                rigidbody2d.velocity = new Vector2(0f, 0f);
-            }
+        if (isCompleted == true)
+        {
+            rigidbody2d.velocity = Vector2.zero;
+        }
+        pause.TogglePause(isCompleted,rigidbody2d);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -67,19 +70,14 @@ public class PlayerController : MonoBehaviour
             Levelcompleted.SetActive(true);
             
         }
-        }
-    private void TogglePause()//Handle Pause Event
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && isCompleted==false)//Pause Screen Logic
+        if (other.tag == "Enemy")
         {
-            isPaused = !isPaused;
-            pausescreen.SetActive(isPaused);
-        }
-        if (isPaused == true)
-        {
-            rigidbody2d.velocity = new Vector2(0f, 0f);
+            isCompleted = true;
+            LevelLost.SetActive(true);
+
         }
     }
+   
 
 }
 
