@@ -952,8 +952,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody2d: {fileID: 270113193}
   speed: 3
-  Levelcompleted: {fileID: 447679822}
-  LevelLost: {fileID: 413583836}
+  LevelcompletedPanel: {fileID: 447679822}
+  LevelLostPanel: {fileID: 413583836}
 --- !u!114 &270113197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2182,7 +2182,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

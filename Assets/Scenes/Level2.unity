@@ -1438,7 +1438,7 @@ Transform:
   m_GameObject: {fileID: 818780553}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.39, y: 4.04, z: 0}
+  m_LocalPosition: {x: -1.39, y: 5.13, z: 0}
   m_LocalScale: {x: 2.43, y: 0.12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2201,7 +2201,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2812,8 +2812,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody2d: {fileID: 1571118524}
   speed: 3
-  Levelcompleted: {fileID: 1371671538}
-  LevelLost: {fileID: 924023855}
+  LevelcompletedPanel: {fileID: 1371671538}
+  LevelLostPanel: {fileID: 924023855}
 --- !u!4 &1571118527
 Transform:
   m_ObjectHideFlags: 0
@@ -3798,7 +3798,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

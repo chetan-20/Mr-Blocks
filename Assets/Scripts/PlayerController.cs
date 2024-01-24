@@ -4,26 +4,25 @@ using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 
 public class PlayerController : MonoBehaviour
 {
     
-    private Restart restart;
+    
     public Rigidbody2D rigidbody2d;
     public float speed;
     private PauseMenu pause;//PauseMenu object
-    public GameObject Levelcompleted;
-    public GameObject LevelLost;
+    public GameObject LevelcompletedPanel;
+    public GameObject LevelLostPanel;
     
-    private bool isCompleted = false;
+    internal bool isCompleted = false;
     // Start is called before the first frame update
     void Start()
     {
         pause = GetComponent<PauseMenu>();//necessary to initialise this before starting other scripts
-        restart = GetComponent<Restart>();
-        
     }
 
     // Update is called once per frame
@@ -61,30 +60,29 @@ public class PlayerController : MonoBehaviour
         if (isCompleted == true)
         {
             rigidbody2d.velocity = Vector2.zero;
+            
+            
         }
+        
         pause.TogglePause(isCompleted,rigidbody2d);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-        {
+        { 
+        Time.timeScale = 0f;
         if (other.tag == "Door")
         {
             isCompleted = true;
-            Levelcompleted.SetActive(true);
-            
+            LevelcompletedPanel.SetActive(true);
+                  
         }
         if (other.tag == "Enemy")
         {
             isCompleted = true;
-            LevelLost.SetActive(true);
-
+            LevelLostPanel.SetActive(true);            
         }
     }
-   
-    public bool getIsComplete()
-    {
-        return isCompleted;
-    }
+    
 
 }
 

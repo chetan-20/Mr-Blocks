@@ -24,7 +24,7 @@ public class MoveVertical : MonoBehaviour
 
         //PingPong is used to oscillate the object and it does not require to write the reverse logic
         //Time.time is used to get smooth animation and is multiplied by speed to control the speed
-        float newposition = Mathf.PingPong(speed * Time.time, distance);
+        float newposition = Mathf.PingPong(speed * Time.time, distance);                                             
         //Changin y for vertical movement
         transform.position = new Vector2(originalposition.x, originalposition.y+newposition);
 
