@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Unity.VisualScripting;
+
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+
+
 
 
 public class PlayerController : MonoBehaviour
@@ -14,11 +11,12 @@ public class PlayerController : MonoBehaviour
     
     public Rigidbody2D rigidbody2d;
     public float speed;
-    private PauseMenu pause;//PauseMenu object
+    internal PauseMenu pause;//PauseMenu object
     public GameObject LevelcompletedPanel;
     public GameObject LevelLostPanel;
     
     internal bool isCompleted = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +58,7 @@ public class PlayerController : MonoBehaviour
         if (isCompleted == true)
         {
             rigidbody2d.velocity = Vector2.zero;
+           
             
             
         }
@@ -82,7 +81,7 @@ public class PlayerController : MonoBehaviour
             LevelLostPanel.SetActive(true);            
         }
     }
-    
+   
 
 }
 
