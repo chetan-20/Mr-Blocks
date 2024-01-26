@@ -7,6 +7,10 @@ TagManager:
   - Door
   - Pause
   - Enemy
+  - Red
+  - Green
+  - Blue
+  - BGmusic
   layers:
   - Default
   - TransparentFX
